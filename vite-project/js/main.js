@@ -1,24 +1,39 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+// API (Application Programming Interface) - if you want to get data
+// from the internet programmatically, it's likely that you will have
+// to deal with an API.
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Below is an entry point to an api that generates random quotes.
+// APIs are usually accessible with a HTML/website link.
+// (If you open this in a browser, you will get raw object data.)
+const apiEntry = "https://api.quotable.io/random";
 
-setupCounter(document.querySelector('#counter'))
+// fetch is a function (that you've seen previously) that can retrieve
+// data from an api entry point.
+console.log(fetch(apiEntry));
+
+// fetch() returns a "response", which we must convert into a object json format
+fetch(apiEntry)
+    .then((response) => response.json()) // use the `.json()` method
+    .then((data) => console.log(data)); // `.json()` is also async, chain another `.then()` to log the object
+
+// let's turn this to an async/await function
+async function fetchData(apiEntry) {
+    try {
+        const response = await fetch(apiEntry);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.error(err);
+    }
+}
+fetchData(apiEntry);
+
+// paired with DOM selectors, you can display dynamic data onto your HTML!
+const apiResponseDOM = document.getElementById("api-response");
+const putQuoteInHTML = async () => {
+    // defining an async arrow function
+    const quote = await fetchData(apiEntry);
+    apiResponseDOM.innerHTML = `Quote: ${quote.content}`;
+};
+putQuoteInHTML();
