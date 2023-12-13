@@ -7,8 +7,5 @@ async function getData(URL){
         const data =await response.json();
         console.log(data);
     }catch(error){console.log(error)}
-    const URL =data
-    .filter((anime)=>anime.score>8.0)
-    .forEach((animes)=>console.log(animes.title_english))
 }
 getData(URL);
