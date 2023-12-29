@@ -1,3 +1,14 @@
-fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=32d4d8eb5d3a4d59bbbef34cda51f943&page=2")
-    .then(response => response.json())
-    .then(quote => console.log(quote))
+const url = "https://rickandmortyapi.com/api/character";
+async function getData(url) {
+  try {
+    const response = await fetch(url);
+    const Data = await response.json();
+    console.log(Data);
+    return Data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+const Data = getData(url);
+export { Data };
+//themoviedb can go fuck itself for banning my smurf account//
