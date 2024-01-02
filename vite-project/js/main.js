@@ -1,14 +1,44 @@
+
 const url = "https://rickandmortyapi.com/api/character";
+//find better api than rick and morty as this shit is outdated at least this does not have an api key so this might stay//
+const DOMSelectors = {
+  cards: document.querySelector(".cards"),
+  search: document.getElementById("search"),
+};
+
+
 async function getData(url) {
   try {
     const response = await fetch(url);
     const Data = await response.json();
-    console.log(Data);
-    return Data;
+    return Data.results;
   } catch (error) {
     console.log(error);
   }
 }
-const Data = getData(url);
-export { Data };
-//themoviedb can go fuck itself for banning my smurf account//
+//reminder add some error codes if there is a wrong input//
+
+function defaultCardGenerate(filtercharacters) {
+    filtercharacters.forEach((characters) => {
+      DOMSelectors.cards.insertAdjacentHTML(
+        "beforeend",
+        `<div class="card" id="${characters.name
+          .toLowerCase()
+          .replace(/ /g, "")}">
+          <h2 class="characterName">${characters.name}</h2>
+          <img class="img" src="${characters.image}"/>
+          <div class="text">
+          <h3>${characters.status}</h3>
+          <h3>${characters.origin.name}</h3>
+          </div>
+      </div>`
+      );
+    });
+  }
+  
+  //remeber to have the text before the status add this latter//
+  async function main() {
+    var filtercharacters = await getData(url);
+    defaultCardGenerate(filtercharacters);
+  }
+  main();
