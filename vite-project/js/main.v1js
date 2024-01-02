@@ -1,0 +1,15 @@
+const url = "https://rickandmortyapi.com/api/character";
+async function getData(url) {
+  try {
+    const response = await fetch(url);
+    const Data = await response.json();
+    console.log(Data);
+    return Data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+const Data = getData(url);
+export { Data };
+//themoviedb can go fuck itself for banning my smurf account//
+//hp can go fuck itself cheap piece of shit breaks on the worse days on fucking days that you were planning to code fuck this piece shit laptop fucking dead ram and who thought having 1 channel of 16gb is smart in 2023 what the fuck kind of cheapest product is this shit then fucking warranty expires 3 days before breaking fuck this piece shit//
