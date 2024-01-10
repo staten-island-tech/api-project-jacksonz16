@@ -3,7 +3,7 @@ import { DOMSelectors } from '../js/dom.js'
 
 
 const url = "https://rickandmortyapi.com/api/character";
-//find better api than rick and morty as this shit is outdated at least this does not have an api key so this might stay//
+
 
 
 
@@ -36,7 +36,7 @@ function defaultCardGenerate(filtercharacters) {
     });
   }
   
-  //remeber to have the text before the status add this latter//
+
   async function main() {
     var filtercharacters = await getData(url);
     defaultCardGenerate(filtercharacters);
