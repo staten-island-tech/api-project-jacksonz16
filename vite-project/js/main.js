@@ -26,7 +26,7 @@ function defaultCardGenerate(filtercharacters) {
           .toLowerCase()
           .replace(/ /g, "")}">
           <h2 class="characterName">${characters.name}</h2>
-          <img class="img" src="${characters.image}" alt="${characters.name}"class="img"/><img>
+          <img  src="${characters.image}" alt="${characters.name}"class="img"/><img>
           <div class="text">
           <h3>${characters.status}</h3>
           <h3>${characters.origin.name}</h3>
