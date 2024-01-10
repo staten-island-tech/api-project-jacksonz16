@@ -35,7 +35,6 @@ function defaultCardGenerate(filtercharacters) {
       );
     });
   }
-  
 
   async function main() {
     var filtercharacters = await getData(url);
@@ -43,16 +42,16 @@ function defaultCardGenerate(filtercharacters) {
   }
   main();
 
-  async function search() {
-  const character = await document.getElementById("input").value.toLowerCase();
-  const charactercards = await document.getElementsByClassName("card");
-  for (var i = charactercards.length - 1; i >= 0; i--) {
-    if (!charactercards[i].id.includes(character)) {
-      charactercards[i].style.display = "none";
-    } else {
-      charactercards[i].style.display = "";
-    }
-  }
-}
+//   async function search() {
+//   const character = await document.getElementById("input").value.toLowerCase();
+//   const charactercards = await document.getElementsByClassName("card");
+//   for (var i = charactercards.length - 1; i >= 0; i--) {
+//     if (!charactercards[i].id.includes(character)) {
+//       charactercards[i].style.display = "none";
+//     } else {
+//       charactercards[i].style.display = "";
+//     }
+//   }
+// }
 
  
