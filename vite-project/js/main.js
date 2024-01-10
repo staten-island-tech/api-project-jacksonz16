@@ -1,6 +1,6 @@
 import '../css/style.css'
 import { DOMSelector } from '../js/dom.js'
-const url = "https://rickandmortyapi.com/api/character";
+const url = "https://rickandmortyapi.com/api/character/?name=";
 
 async function getData(url) {
   try {
@@ -12,6 +12,12 @@ async function getData(url) {
   }
 }
 //reminder add some error codes if there is a wrong input//
+DOMSelector.searchForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  const  character = DOMSelector.searchBar.value
+  const URL = "https://rickandmortyapi.com/api/character/?name="+character
+  getData(URL);
+});
 
 function defaultCardGenerate(filtercharacters) {
     filtercharacters.forEach((characters) => {
@@ -37,9 +43,3 @@ function defaultCardGenerate(filtercharacters) {
   }
   main();
 
-  DOMSelector.searchForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const  query = DOMSelector.searchBar.value
-    const URL = "https://rickandmortyapi.com/api/character/?name="+query
-    getData(URL);
-  });
