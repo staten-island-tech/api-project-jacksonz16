@@ -3,4 +3,5 @@
     search: document.getElementById("search"),
      input: document.getElementById("input"),
      card: document.getElementById("card"),
+     error: document.getElementById("error")
   };
