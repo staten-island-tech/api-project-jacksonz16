@@ -1,6 +1,4 @@
 <html lang="en">
-
-
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,24 +10,13 @@
     <section class="title">
       <h1 class="h1">Out dated Rick and Morty Character filter</h1>
     </section>
-    <div id="searchbar">
-      <input id="input" type="text" placeholder="Search for a character..." autocomplete="off" onkeyup="search()">
-  </div>
+
+    <form id="search">
+      <input type="text" name="query" id="search-bar" placeholder="Search for Character" required><br>
+      <input type="submit" value="Search" id="search-button">
+    </form>
+  
     <section class="cards"></section>
     <script type="module" src="/js/main.js"></script>
-    <script>
-    async function search() {
-    const character = await document.getElementById("input").value.toLowerCase();
-    const charactercards = await document.getElementsByClassName("card");
-    for (var i = charactercards.length - 1; i >= 0; i--) {
-      if (!charactercards[i].id.includes(character)) {
-        charactercards[i].style.display = "none";
-      } else {
-        charactercards[i].style.display = "";
-      }
-    }
-  }
-  
-    </script>
   </body>
 </html>

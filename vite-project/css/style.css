@@ -1,6 +1,3 @@
-/* redo this fucking color half of this shit is copied and pasted from old projects at least the bare minumin is working.Hp can go fuck itself for making work 16 hour */
-/*remeber you could had done this over a longer period of time and not use do 16 hours of coding this crap*/
-/*stop procrasting on cs projects so this shit does not happen again*/
 html,
 body,
 * {
@@ -59,7 +56,7 @@ h3 {
   border-width: 1.5rem;
   border-style: outset;
   margin: 3%;
-  max-height: 70rem; /*any thing above 60 aviods text cilping*/
+  max-height: 70rem; 
 }
 .text {
   padding: 1rem;
@@ -79,13 +76,21 @@ h3 {
   .characterName {
     font-size: 5rem;
   }
-
-#searchbar {
-  position: center;
-}
-
-#searchbar::after {
-  position: absolute;
-  top: 7px;
-  right: 15px;
-}
+  #search {
+    margin: 0px;
+  }
+   
+    #search-bar {
+      padding: 10px;
+      width: 75%;
+      border: gray solid thin;
+      font-size: 5rem;
+    }
+    #search-button {
+      padding: 10px;
+      border: none;
+      background: white;
+      color: var(--black);
+      font-size: x-large;
+      cursor: pointer;
+    }
